@@ -1,0 +1,186 @@
+/* RESET GENERAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ESTILOS GENERALES */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+header, footer {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #222;
+  color: #fff;
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #f7c600;
+  font-weight: bold;
+}
+
+nav a.activo, nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+/* TITULOS */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: white;
+}
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: black;
+}
+/* IMÁGENES CENTRADAS */
+img, picture, svg {
+  display: block;
+  margin: 20px auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* FIGURE & FIGCAPTION */
+figure {
+  text-align: center;
+  margin: 20px auto;
+}
+
+figcaption {
+  margin-top: 8px;
+  font-style: italic;
+  color: #666;
+}
+
+/* MAPAS DE IMAGEN */
+map area {
+  cursor: pointer;
+}
+
+/* GALERÍA */
+.galeria {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.galeria figure {
+  width: 200px;
+}
+
+/* SECCIÓN TRANSICIÓN */
+.transicion .animado {
+  font-size: 1.4em;
+  color: #444;
+  text-align: center;
+  padding: 10px;
+  animation: fadeInUp 1.5s ease-in-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* LOGO SVG */
+.logo-svg {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* TABLAS */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px auto;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+}
+
+th {
+  background-color: #f7c600;
+  color: #333;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* FOOTER */
+footer {
+  margin-top: 40px;
+  font-size: 0.9em;
+}
+
+footer a {
+  color: #f7c600;
+  text-decoration: none;
+}
+@media screen and (max-width: 600px) {
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  main {
+    padding: 10px;
+  }
+
+  .galeria {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .galeria figure {
+    width: 90%;
+  }
+
+  h1, h2 {
+    font-size: 1.4rem;
+  }
+
+  .transicion .animado {
+    font-size: 1.2em;
+  }
+
+  picture img,
+  img {
+    width: 100%;
+    height: auto;
+  }
+}

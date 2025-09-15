@@ -1,0 +1,17 @@
+
+/* Unified styles for bootstrap-integrated project */
+body { scroll-behavior: smooth; }
+.skip-link { position: absolute; left: -9999px; top: 0; background: #0d6efd; color: #fff; padding: .5rem .75rem; z-index: 1050; border-radius: .5rem; }
+.skip-link:focus { left: .5rem; top: .5rem; outline: 2px solid #fff; }
+.navbar-brand { font-weight:700; }
+.card img { max-height: 220px; object-fit: cover; }
+/* Cart animations */
+#cart-btn.animate { animation: cartBounce 0.7s ease; }
+@keyframes cartBounce { 0%,100%{transform:scale(1);}30%{transform:scale(1.35);}50%{transform:scale(0.9);}70%{transform:scale(1.1);} }
+#cart-count.flash { animation: flashBg 0.7s ease; }
+@keyframes flashBg { 0%,100%{background-color:#dc3545;}50%{background-color:yellow;color:black;} }
+/* Back to top */
+.back-to-top { position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 1050; display: none; }
+.back-to-top.show { display: block; }
+/* Focus visible */
+:focus-visible { outline: 3px solid #6ea8fe; outline-offset: 2px; }

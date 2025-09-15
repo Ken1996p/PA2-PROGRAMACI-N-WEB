@@ -1,0 +1,25 @@
+{
+  "productos": [
+    {
+      "id": 1,
+      "nombre": "Zapatilla Urbana Dama",
+      "precio": 120,
+      "imagen": "imagenes/ofertas1.png",
+      "categoria": "urbana"
+    },
+    {
+      "id": 2,
+      "nombre": "Zapatilla Running Caballero",
+      "precio": 150,
+      "imagen": "imagenes/oferta2.png",
+      "categoria": "deportiva"
+    },
+    {
+      "id": 3,
+      "nombre": "Zapatilla Deportiva",
+      "precio": 65,
+      "imagen": "imagenes/za1.jpg",
+      "categoria": "deportiva"
+    }
+  ]
+}

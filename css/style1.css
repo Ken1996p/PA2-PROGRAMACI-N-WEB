@@ -1,0 +1,26 @@
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.galeria figure {
+  max-width: 250px;
+  text-align: center;
+}
+.logo-svg {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+.transicion .animado {
+  animation: aparecer 2s ease-in-out infinite alternate;
+}
+@keyframes aparecer {
+  0% { opacity: 0.5; transform: scale(0.98); }
+  100% { opacity: 1; transform: scale(1); }
+}
+nav a.activo {
+  font-weight: bold;
+  text-decoration: underline;
+}

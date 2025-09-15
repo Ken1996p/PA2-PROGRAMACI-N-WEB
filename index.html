@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZapaStyle - Tu Tienda de Zapatillas</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e74c3c;
+            --accent-color: #f39c12;
+            --success-color: #27ae60;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        /* Navigation Styles */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #34495e 100%) !important;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .navbar-nav .nav-link {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--accent-color) !important;
+            transform: translateY(-2px);
+        }
+
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .navbar-nav .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.9), rgba(52, 73, 94, 0.9)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="shoe" patternUnits="userSpaceOnUse" width="20" height="20"><path d="M2 18h16v-2H2z" fill="%23ffffff10"/></pattern></defs><rect width="100" height="100" fill="url(%23shoe)"/></svg>');
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 70%, rgba(243, 156, 18, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 20%, rgba(231, 76, 60, 0.3) 0%, transparent 50%);
+            animation: heroAnimation 20s ease-in-out infinite;
+        }
+
+        @keyframes heroAnimation {
+            0%, 100% { transform: translateX(0) rotate(0deg); }
+            33% { transform: translateX(-20px) rotate(1deg); }
+            66% { transform: translateX(20px) rotate(-1deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+            animation: slideInUp 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            animation: slideInUp 1s ease-out 0.3s both;
+        }
+
+        .hero-cta {
+            animation: slideInUp 1s ease-out 0.6s both;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Offers Section */
+        .offers-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .product-card:hover::before {
+            left: 100%;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .offer-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--secondary-color);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .add-to-cart-btn {
+            background: linear-gradient(135deg, var(--secondary-color), #c0392b);
+            border: none;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .add-to-cart-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .add-to-cart-btn:hover::before {
+            left: 100%;
+        }
+
+        .add-to-cart-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(231, 76, 60, 0.4);
+            background: linear-gradient(135deg, #c0392b, var(--secondary-color));
+        }
+
+        .add-to-cart-btn:active {
+            transform: translateY(0);
+            transition: transform 0.1s ease;
+        }
+
+        /* Categories Section */
+        .categories-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .category-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--accent-color), #e67e22);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        /* Cart Styles */
+        .cart-dropdown {
+            min-width: 320px !important;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            animation: dropdownSlide 0.3s ease;
+        }
+
+        @keyframes dropdownSlide {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cart-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            transition: background-color 0.2s ease;
+        }
+
+        .cart-item:hover {
+            background-color: #f8f9fa;
+        }
+
+        .cart-badge {
+            animation: cartBounce 0.6s ease;
+        }
+
+        @keyframes cartBounce {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 0;
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .contact-info {
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .contact-item i {
+            font-size: 1.3rem;
+            margin-right: 15px;
+            color: var(--accent-color);
+            width: 25px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .social-link:hover {
+            background: var(--accent-color);
+            color: white;
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 10px 25px rgba(243, 156, 18, 0.3);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--secondary-color), #c0392b);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            display: none;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(231, 76, 60, 0.5);
+            background: linear-gradient(135deg, #c0392b, var(--secondary-color));
+        }
+
+        .back-to-top.show {
+            display: block;
+            animation: slideInUp 0.3s ease;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#inicio">
+                <i class="fas fa-shoe-prints me-2"></i>ZapaStyle
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ofertas">Ofertas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#categorias">Categorías</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+                
+                <div class="d-flex align-items-center">
+                    <!-- Cart Dropdown -->
+                    <div class="dropdown">
+                        <button class="btn btn-outline-light position-relative me-2" type="button" 
+                                id="cartDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-badge">
+                                0
+                            </span>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end cart-dropdown p-3" aria-labelledby="cartDropdown">
+                            <h6 class="dropdown-header d-flex justify-content-between align-items-center">
+                                <span><i class="fas fa-shopping-cart me-2"></i>Carrito</span>
+                            </h6>
+                            <div class="dropdown-divider"></div>
+                            <div id="cart-items" class="mb-3" style="max-height: 300px; overflow-y: auto;">
+                                <div class="text-center text-muted py-3">
+                                    <i class="fas fa-shopping-cart fa-2x mb-2"></i>
+                                    <p>No hay productos en el carrito</p>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <strong>Total:</strong>
+                                <strong id="cart-total" class="text-primary">S/ 0.00</strong>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button id="clear-cart" class="btn btn-outline-danger btn-sm" disabled>
+                                    <i class="fas fa-trash me-2"></i>Vaciar Carrito
+                                </button>
+                                <button id="checkout" class="btn btn-success btn-sm" disabled>
+                                    <i class="fas fa-credit-card me-2"></i>Finalizar Compra
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-section">
+        <div class="hero-content">
+            <div class="container">
+                <h1 class="hero-title">ZapaStyle</h1>
+                <p class="hero-subtitle">
+                    Descubre la perfecta combinación de estilo, comodidad y calidad.<br>
+                    Tu tienda de confianza para zapatillas de damas y caballeros.
+                </p>
+                <div class="hero-cta">
+                    <a href="#ofertas" class="btn btn-light btn-lg me-3">
+                        <i class="fas fa-fire me-2"></i>Ver Ofertas
+                    </a>
+                    <a href="#categorias" class="btn btn-outline-light btn-lg">
+                        <i class="fas fa-shoe-prints me-2"></i>Explorar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offers Section -->
+    <section id="ofertas" class="offers-section">
+        <div class="container">
+            <div class="section-title">
+                <h2><i class="fas fa-fire me-2"></i>Ofertas Especiales</h2>
+                <p class="lead">Aprovecha nuestros descuentos exclusivos en zapatillas seleccionadas</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="imagenes/ofertas1.png" alt="Zapatilla Urbana Dama">
+                            <div class="offer-badge">¡Oferta!</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Zapatilla Urbana Dama</h3>
+                            <div class="product-price">
+                                <span class="text-decoration-line-through text-muted me-2">S/ 150</span>
+                                S/ 120
+                            </div>
+                            <button class="add-to-cart-btn" data-product-id="1" data-name="Zapatilla Urbana Dama" data-price="120">
+                                <i class="fas fa-cart-plus me-2"></i>Agregar al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="imagenes/oferta2.png" alt="Zapatilla Running Caballero">
+                            <div class="offer-badge">¡Oferta!</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Zapatilla Running Caballero</h3>
+                            <div class="product-price">
+                                <span class="text-decoration-line-through text-muted me-2">S/ 180</span>
+                                S/ 150
+                            </div>
+                            <button class="add-to-cart-btn" data-product-id="2" data-name="Zapatilla Running Caballero" data-price="150">
+                                <i class="fas fa-cart-plus me-2"></i>Agregar al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="imagenes/za1.jpg" alt="Zapatilla Deportiva">
+                            <div class="offer-badge">¡Nuevo!</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Zapatilla Deportiva</h3>
+                            <div class="product-price">S/ 65</div>
+                            <button class="add-to-cart-btn" data-product-id="3" data-name="Zapatilla Deportiva" data-price="65">
+                                <i class="fas fa-cart-plus me-2"></i>Agregar al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categorias" class="categories-section">
+        <div class="container">
+            <div class="section-title">
+                <h2><i class="fas fa-th-large me-2"></i>Nuestras Categorías</h2>
+                <p class="lead">Encuentra el estilo perfecto para cada ocasión</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-running"></i>
+                        </div>
+                        <h3 class="category-title">Deportivas</h3>
+                        <p>Diseñadas para el rendimiento máximo. Perfectas para entrenamientos, gym y running con soporte y comodidad excepcionales.</p>
+                        <a href="ofertas.html?category=deportiva" class="btn btn-outline-primary">
+                            Ver Productos <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-city"></i>
+                        </div>
+                        <h3 class="category-title">Urbanas</h3>
+                        <p>Estilo y versatilidad para tu día a día. Combinan perfectamente con cualquier outfit casual o semi-formal.</p>
+                        <a href="ofertas.html?category=urbana" class="btn btn-outline-primary">
+                            Ver Productos <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3 class="category-title">Casuales</h3>
+                        <p>Comodidad sin sacrificar el estilo. Ideales para looks relajados y actividades cotidianas con máximo confort.</p>
+                        <a href="ofertas.html?category=casual" class="btn btn-outline-primary">
+                            Ver Productos <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="contact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="text-white"><i class="fas fa-envelope me-2"></i>Contacto</h2>
+                <p class="lead text-light">¿Tienes preguntas? Estamos aquí para ayudarte</p>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="contact-info text-center">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="contact-item justify-content-center">
+                                    <i class="fas fa-envelope"></i>
+                                    <div>
+                                        <strong>Email</strong><br>
+                                        <a href="mailto:kencarpio1996@gmail.com" class="text-white">kencarpio1996@gmail.com</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="contact-item justify-content-center">
+                                    <i class="fas fa-phone"></i>
+                                    <div>
+                                        <strong>Teléfono</strong><br>
+                                        <a href="tel:+51901914781" class="text-white">+51 901 914 781</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="contact-item justify-content-center">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <div>
+                                        <strong>Ubicación</strong><br>
+                                        Quillabamba, Cusco, Perú
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="social-links">
+                            <a href="https://facebook.com/tuusuario" target="_blank" class="social-link" title="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://instagram.com/tuusuario" target="_blank" class="social-link" title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://wa.me/51901914781" target="_blank" class="social-link" title="WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" title="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Cart Management
+        class SimpleCart {
+            constructor() {
+                this.items = JSON.parse(localStorage.getItem('zapastyle_cart') || '[]');
+                this.init();
+            }
+
+            init() {
+                this.bindEvents();
+                this.updateUI();
+            }
+
+            bindEvents() {
+                // Add to cart buttons
+                document.addEventListener('click', (e) => {
+                    if (e.target.matches('.add-to-cart-btn') || e.target.closest('.add-to-cart-btn')) {
+                        e.preventDefault();
+                        const btn = e.target.matches('.add-to-cart-btn') ? e.target : e.target.closest('.add-to-cart-btn');
+                        this.addItem({
+                            id: btn.dataset.productId,
+                            name: btn.dataset.name,
+                            price: parseFloat(btn.dataset.price)
+                        });
+                        this.animateCartIcon();
+                    }
+                });
+
+                // Clear cart
+                document.getElementById('clear-cart').addEventListener('click', () => {
+                    if (confirm('¿Estás seguro de que quieres vaciar el carrito?')) {
+                        this.clearCart();
+                    }
+                });
+
+                // Checkout
+                document.getElementById('checkout').addEventListener('click', () => {
+                    this.processCheckout();
+                });
+            }
+
+            addItem(product) {
+                const existingItem = this.items.find(item => item.id === product.id);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    this.items.push({
+                        ...product,
+                        quantity: 1
+                    });
+                }
+
+                this.saveCart();
+                this.updateUI();
+                this.showNotification(`${product.name} agregado al carrito`, 'success');
+            }
+
+            removeItem(productId) {
+                this.items = this.items.filter(item => item.id !== productId);
+                this.saveCart();
+                this.updateUI();
+                this.showNotification('Producto eliminado del carrito', 'info');
+            }
+
+            updateQuantity(productId, quantity) {
+                const item = this.items.find(item => item.id === productId);
+                if (item) {
+                    if (quantity <= 0) {
+                        this.removeItem(productId);
+                    } else {
+                        item.quantity = quantity;
+                        this.saveCart();
+                        this.updateUI();
+                    }
+                }
+            }
+
+            clearCart() {
+                this.items = [];
+                this.saveCart();
+                this.updateUI();
+                this.showNotification('Carrito vaciado', 'info');
+            }
+
+            saveCart() {
+                localStorage.setItem('zapastyle_cart', JSON.stringify(this.items));
+            }
+
+            getTotal() {
+                return this.items.reduce((total, item) => total + (item.price * item.quantity), 0);
+            }
+
+            getItemCount() {
+                return this.items.reduce((total, item) => total + item.quantity, 0);
+            }
+
+            updateUI() {
+                const countElement = document.getElementById('cart-count');
+                const itemsElement = document.getElementById('cart-items');
+                const totalElement = document.getElementById('cart-total');
+                const clearButton = document.getElementById('clear-cart');
+                const checkoutButton = document.getElementById('checkout');
+
+                const count = this.getItemCount();
+                const total = this.getTotal();
+
+                // Update count
+                countElement.textContent = count;
+                countElement.style.display = count > 0 ? 'inline-block' : 'none';
+
+                // Update items display
+                if (this.items.length === 0) {
+                    itemsElement.innerHTML = `
+                        <div class="text-center text-muted py-3">
+                            <i class="fas fa-shopping-cart fa-2x mb-2"></i>
+                            <p>No hay productos en el carrito</p>
+                        </div>
+                    `;
+                } else {
+                    itemsElement.innerHTML = this.items.map(item => `
+                        <div class="cart-item d-flex justify-content-between align-items-start">
+                            <div class="flex-grow-1">
+                                <h6 class="mb-1">${item.name}</h6>
+                                <small class="text-muted">S/ ${item.price.toFixed(2)} x ${item.quantity}</small>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <strong class="me-2">S/ ${(item.price * item.quantity).toFixed(2)}</strong>
+                                <button class="btn btn-sm btn-outline-danger" onclick="cart.removeItem('${item.id}')">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `).join('');
+                }
+
+                // Update total
+                totalElement.textContent = `S/ ${total.toFixed(2)}`;
+
+                // Update button states
+                clearButton.disabled = this.items.length === 0;
+                checkoutButton.disabled = this.items.length === 0;
+            }
+
+            animateCartIcon() {
+                const cartIcon = document.querySelector('#cartDropdown i');
+                const cartBadge = document.getElementById('cart-count');
+                
+                cartIcon.style.transform = 'scale(1.2)';
+                cartBadge.classList.add('cart-badge');
+                
+                setTimeout(() => {
+                    cartIcon.style.transform = 'scale(1)';
+                }, 300);
+            }
+
+            processCheckout() {
+                if (this.items.length === 0) return;
+
+                const orderNumber = Math.floor(Math.random() * 1000000);
+                const total = this.getTotal();
+
+                this.showNotification('Procesando compra...', 'info');
+
+                setTimeout(() => {
+                    this.showNotification(`¡Compra realizada exitosamente! Orden #${orderNumber} por S/ ${total.toFixed(2)}`, 'success', 5000);
+                    this.clearCart();
+                }, 2000);
+            }
+
+            showNotification(message, type = 'info', duration = 3000) {
+                const notification = document.createElement('div');
+                notification.className = `alert alert-${this.getBootstrapType(type)} alert-dismissible fade show position-fixed`;
+                notification.style.cssText = 'top: 100px; right: 20px; z-index: 9999; min-width: 300px;';
+                notification.innerHTML = `
+                    ${message}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                `;
+
+                document.body.appendChild(notification);
+
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.remove();
+                    }
+                }, duration);
+            }
+
+            getBootstrapType(type) {
+                const typeMap = {
+                    'success': 'success',
+                    'error': 'danger',
+                    'warning': 'warning',
+                    'info': 'info'
+                };
+                return typeMap[type] || 'info';
+            }
+        }
+
+        // Smooth Scrolling
+        class SmoothScroll {
+            constructor() {
+                this.init();
+            }
+
+            init() {
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const targetId = anchor.getAttribute('href');
+                        const targetSection = document.querySelector(targetId);
+                        
+                        if (targetSection) {
+                            const navHeight = document.querySelector('.navbar').offsetHeight;
+                            const targetPosition = targetSection.offsetTop - navHeight - 20;
+                            
+                            window.scrollTo({
+                                top: targetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
+                    });
+                });
+            }
+        }
+
+        // Back to Top Button
+        class BackToTop {
+            constructor() {
+                this.button = document.getElementById('backToTop');
+                this.init();
+            }
+
+            init() {
+                window.addEventListener('scroll', () => {
+                    if (window.pageYOffset > 300) {
+                        this.button.classList.add('show');
+                    } else {
+                        this.button.classList.remove('show');
+                    }
+                });
+
+                this.button.addEventListener('click', () => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        }
+
+        // Intersection Observer for Animations
+        class AnimationObserver {
+            constructor() {
+                this.observer = new IntersectionObserver(this.handleIntersection.bind(this), {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                });
+                
+                this.init();
+            }
+
+            init() {
+                const elementsToAnimate = document.querySelectorAll('.product-card, .category-card');
+                elementsToAnimate.forEach(el => {
+                    el.style.opacity = '0';
+                    el.style.transform = 'translateY(30px)';
+                    this.observer.observe(el);
+                });
+            }
+
+            handleIntersection(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.transition = 'all 0.6s ease';
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        this.observer.unobserve(entry.target);
+                    }
+                });
+            }
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize cart
+            window.cart = new SimpleCart();
+            
+            // Initialize smooth scrolling
+            new SmoothScroll();
+            
+            // Initialize back to top button
+            new BackToTop();
+            
+            // Initialize animations
+            new AnimationObserver();
+
+            // Add loading states to buttons
+            document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const originalText = this.innerHTML;
+                    this.innerHTML = '<div class="loading"></div> Agregando...';
+                    this.disabled = true;
+                    
+                    setTimeout(() => {
+                        this.innerHTML = originalText;
+                        this.disabled = false;
+                    }, 1000);
+                });
+            });
+        });
+
+        // Handle navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.backgroundColor = 'rgba(44, 62, 80, 0.95)';
+                navbar.style.backdropFilter = 'blur(10px)';
+            } else {
+                navbar.style.backgroundColor = 'rgba(44, 62, 80, 1)';
+                navbar.style.backdropFilter = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "zapastyle",
+  "version": "1.0.0",
+  "description": "Proyecto Programación Web con JSON Server",
+  "scripts": {
+    "start": "json-server --watch db.json --port 3000"
+  },
+  "dependencies": {
+    "json-server": "^0.17.4"
+  }
+}

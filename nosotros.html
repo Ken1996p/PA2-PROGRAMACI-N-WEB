@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nosotros - ZapaStyle</title>
+  <meta name="description" content="Conoce nuestra misión, visión y compromiso con una vida activa, inclusiva y sostenible." />
+  <link rel="stylesheet" href="css/style4.css" />
+  
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- Unified Navbar Start -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Mi Tienda</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+        <li class="nav-item"><a class="nav-link" href="servicios.html">Servicios</a></li>
+        <li class="nav-item"><a class="nav-link" href="ofertas.html">Ofertas</a></li>
+        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+      </ul>
+      <div class="d-flex align-items-center">
+        <a class="btn btn-outline-light me-2" href="ofertas.html">Ver ofertas</a>
+        <div class="dropdown">
+          <button id="cart-btn" class="btn btn-outline-light position-relative" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Carrito de compras">
+            <i class="fas fa-shopping-cart fa-lg" aria-hidden="true"></i>
+            <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end p-3" style="min-width: 280px;">
+            <li><strong>Carrito</strong></li>
+            <div id="cart-items" class="my-2">No hay productos</div>
+            <li class="d-flex justify-content-between">
+              <strong>Total:</strong>
+              <span id="cart-total">S/ 0.00</span>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+            <li><button id="vaciar-carrito" class="btn btn-sm btn-danger w-100 mb-2">Vaciar carrito</button></li>
+            <li><button class="btn btn-sm btn-success w-100">Finalizar compra</button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- Unified Navbar End -->
+
+
+  <header>
+    <h1>ZapaStyle</h1>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="nosotros.html" class="activo">Nosotros</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ¿Quiénes somos? -->
+    <section>
+      <h2>¿Quiénes somos?</h2>
+      <p>Somos una marca comprometida con un estilo de vida activo, inclusivo y responsable. En ZapaStyle creemos que el movimiento es para todos, y por eso desarrollamos calzado que impulsa tu ritmo de vida con libertad y confianza.</p>
+
+      <picture>
+        <source srcset="imagenes/galeria-small1.jpg" media="(max-width:600px)" />
+        <img src="imagenes/zapatilla3.jpg" alt="Personas activas y felices ZapaStyle" />
+      </picture>
+    </section>
+
+    <!-- ¿Qué hacemos? -->
+    <section>
+      <h2>¿Qué hacemos?</h2>
+      <p>Diseñamos y fabricamos calzado técnico y urbano que fusiona funcionalidad, innovación y estilo. Participamos en eventos comunitarios, colaboramos con atletas y promovemos hábitos saludables a través de acciones concretas.</p>
+
+      <figure>
+        <img src="imagenes/eventos.jpg" alt="Evento deportivo ZapaStyle" usemap="#zapaEventMap" />
+        <figcaption>Nos integramos activamente en iniciativas deportivas, educativas y solidarias.</figcaption>
+        <map name="zapaEventMap">
+          <area shape="rect" coords="50,50,200,200" href="#" alt="Conoce nuestro equipo" />
+          <area shape="circle" coords="300,150,75" href="#" alt="Nuestros embajadores" />
+        </map>
+      </figure>
+    </section>
+
+    <!-- ¿Por qué lo hacemos? -->
+    <section>
+      <h2>¿Por qué lo hacemos?</h2>
+      <p>Porque creemos que el movimiento es una expresión de libertad y salud. Queremos romper barreras y crear oportunidades para que todas las personas se muevan, se expresen y vivan activamente sin importar sus circunstancias.</p>
+
+      <picture>
+        <source srcset="imagenes/galeria3-small.jpg" media="(max-width:600px)" />
+        <img src="imagenes/ta1.jpg" alt="Movimiento libre para todos" width="600" height="400"/>
+      </picture>
+    </section>
+
+    <!-- Galería de impacto -->
+    <section>
+      <h2>Galería & Comunidad</h2>
+      <div class="galeria">
+        <figure>
+          <img src="imagenes/ta2.jpg" alt="Carrera ZapaStyle" width="200" height="200"/>
+          <figcaption>Carrera ZapaStyle 2024: superando límites juntos.</figcaption>
+        </figure>
+        <figure>
+          <img src="imagenes/ta3.jpg" alt="Entrenamiento grupal" width="200" height="200"/>
+          <figcaption>Sesiones de entrenamiento colaborativo en espacios urbanos.</figcaption>
+        </figure>
+        <figure>
+          <img src="imagenes/ta4.jpg" alt="Voluntariado deportivo" width="200" height="200"/>
+          <figcaption>Iniciativas de voluntariado deportivo en comunidades rurales.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Identidad visual -->
+    <section>
+      <h2>Nuestra marca</h2>
+      <div class="logo-svg">
+        <svg width="180" height="180" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="90" cy="90" r="85" stroke="#333" stroke-width="5" fill="#F7C600" />
+          <text x="50%" y="50%" text-anchor="middle" fill="#333" font-size="24px" font-family="Arial" dy=".3em">
+            ZapaStyle
+          </text>
+        </svg>
+      </div>
+      <p>El logotipo de ZapaStyle representa dinamismo, conexión y determinación. Sus formas circulares simbolizan el movimiento constante y la unidad de nuestra comunidad activa.</p>
+    </section>
+
+    <!-- Frase animada -->
+    <section class="transicion">
+      <h2>Visión 2025</h2>
+      <p class="animado">
+        Consolidarnos como la marca líder de calzado activo en América Latina, movilizando comunidades y generando un impacto social positivo a través del deporte y el diseño.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 ZapaStyle. Todos los derechos reservados.</p>
+    <p><a href="contacto.html">Contáctanos</a> | <a href="#">Política de privacidad</a></p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main_cart.js"></script>
+
+  <button class="btn btn-primary back-to-top" aria-label="Volver arriba">⬆</button>
+</body>
+</html>

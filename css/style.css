@@ -1,0 +1,313 @@
+/* === ESTILOS GENERALES === */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+main {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* === HEADER === */
+header {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5em;
+}
+
+/* === NAVEGACIÓN === */
+nav {
+  background-color: #555;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 15px 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #ff9900;
+}
+
+/* === SECCIÓN 1: Ofertas === */
+.ofertas-promociones {
+  background-color: white;
+  padding: 30px;
+  margin-top: 20px;
+  border-radius: 8px;
+}
+
+.encabezado-ofertas h2 {
+  color: #e63946;
+}
+
+.productos-oferta {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.producto {
+  text-align: center;
+  max-width: 250px;
+}
+
+.producto img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* === SECCIÓN 2: Zapatillas === */
+.seccion-zapatillas {
+  background-color: #fff;
+  padding: 30px;
+  margin-top: 20px;
+  border-radius: 8px;
+}
+
+.imagen-zapatillas img {
+  width: 100%;
+  max-width: 600px;
+  display: block;
+  margin: 20px auto;
+  border-radius: 8px;
+}
+
+/* === SECCIÓN 3: Tipos === */
+.tipos-zapatillas {
+  background-color: #fff;
+  padding: 30px;
+  margin-top: 20px;
+  border-radius: 8px;
+}
+
+.categorias-zapatillas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.categoria {
+  width: 300px;
+  background-color: #fefefe;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.categoria img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* === SECCIÓN 4: Contacto === */
+.contacto {
+  background-color: #fefefe;
+  padding: 30px;
+  margin-top: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.info-contacto {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.info-contacto li {
+  margin: 10px 0;
+}
+
+.redes-sociales {
+  margin-top: 20px;
+}
+
+.redes-sociales a {
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 1.2em;
+  color: #0077cc;
+  display: inline-block;
+  transition: color 0.3s;
+}
+
+.redes-sociales a i {
+  margin-right: 8px;
+}
+
+.redes-sociales a:hover {
+  color: #e63946;
+}
+
+/* === ANIMACIÓN === */
+.transicion .animado {
+  font-size: 1.4em;
+  color: #444;
+  animation: fadeInUp 1.5s ease-in-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === GALERÍA === */
+.galeria {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.galeria figure {
+  text-align: center;
+}
+
+/* === CONTACTO FORMULARIO === */
+section {
+  background-color: #f9f9f9;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+section h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+label {
+  font-weight: bold;
+  color: #555;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+  transition: border-color 0.3s;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+button[type="submit"] {
+  padding: 0.9rem;
+  font-size: 1rem;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+ul li strong {
+  color: #007BFF;
+}
+
+.carrito {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 250px;
+  background-color: #fffdf5;
+  border: 2px solid #ffd700;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  padding: 1rem;
+  z-index: 1000;
+  border-radius: 8px;
+}
+
+.carrito h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.carrito ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.carrito li {
+  padding: 4px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.carrito button {
+  background-color: #ff5252;
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.carrito button:hover {
+  background-color: #ff0000;
+}
